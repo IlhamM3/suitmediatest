@@ -6,7 +6,7 @@ import work from '../../view/page/work';
 import contact from '../../view/page/contact';
 
 const routes = {
-    '/':work,
+    '/':ideas,
     '/ideas':ideas,
     '/careers':career,
     '/work': work,

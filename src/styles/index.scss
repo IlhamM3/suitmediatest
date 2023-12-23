@@ -135,6 +135,8 @@ main{
             }
             .filter{
                 display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
                 gap: 10px;
                 select{
                     display: flex;
@@ -151,6 +153,10 @@ main{
                     align-items: center;
                     justify-content: center;
                     align-content: center;
+                    #pagesize,
+                    #sorting{
+                        padding: 0 0.5rem;
+                    }
                 }
             }
         }
@@ -159,6 +165,11 @@ main{
             gap: 2rem;
             flex-wrap: wrap;
             justify-content: center;
+            .loading{
+                display: block;
+                width: 10rem;
+                height: 10rem;
+            }
             .card{
                 display: flex;
                 flex-direction: column;

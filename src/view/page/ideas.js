@@ -32,7 +32,9 @@ const ideas = {
                         </div>
                     </div>
                 </div>
-                <div id="containercard" class="containercard"></div>
+                <div id="containercard" class="containercard">
+                    <img id="loading" class="loading" src="./svg/loading.svg"></img>
+                </div>
             </section>
         `;
     },
@@ -55,6 +57,7 @@ const ideas = {
             localStorage.setItem('pagesize', pagesizes);
             cekshowingpage();
             fetchData();
+            location.reload();
         });
 
         sorting.addEventListener("change", () => {
@@ -62,6 +65,7 @@ const ideas = {
             localStorage.setItem('sorting', sortings);
             cekshowingpage();
             fetchData();
+            location.reload();
         });
 
         function fetchData() {
@@ -76,6 +80,9 @@ const ideas = {
                 },
             })
                 .then(response => {
+                    const loading = document.getElementById('loading');
+                    loading.style.display = 'none';
+
                     displayData(response.data.data);
                 })
                 .catch(error => {
@@ -108,7 +115,7 @@ const ideas = {
         function createCard({ id, img, tanggal, title }) {
             return `
                 <div class="card" id="${id}">
-                    <img src="${img}" alt="Photo card">
+                    <img src="${img}" alt="Photo card" loading="lazy">
                     <div class="informasicard">
                         <p class="tanggal">${tanggal}</p>
                         <h4 class="title">${title}</h4>
